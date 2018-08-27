@@ -22,10 +22,20 @@ public class Grid {
     }
 
     private void updateIndexIfRequired(int xPoint, int yPoint) {
+        if (xPoint < minIndex){
+            minIndex = xPoint;
+        }else if (yPoint < minIndex){
+            minIndex = yPoint;
+        }
 
+        if (xPoint > maxIndex){
+            maxIndex = xPoint;
+        }else if (yPoint > maxIndex){
+            maxIndex = yPoint;
+        }
     }
 
     private String getMapKey(int xPoint, int yPoint) {
-        return null;
+        return "" + xPoint + "#" + yPoint;
     }
 }
