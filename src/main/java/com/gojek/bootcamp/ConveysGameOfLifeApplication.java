@@ -9,6 +9,6 @@ public class ConveysGameOfLifeApplication {
         GameBoard gameBoard = new GameBoard(userInput, systemOutput);
         gameBoard.processInput();
         gameBoard.displayGrid();
-
+        boolean isNextIteration = gameBoard.isNextIterationPossible();
     }
 }

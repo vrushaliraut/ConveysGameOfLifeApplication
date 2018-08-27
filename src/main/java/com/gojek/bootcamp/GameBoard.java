@@ -60,4 +60,21 @@ public class GameBoard {
         }
 
     }
+
+    public boolean isNextIterationPossible() {
+        int minIndex = grid.getMinIndex();
+        int maxIndex = grid.getMaxIndex();
+        boolean isNextIterationPossible = false;
+
+        for (int xLoop = minIndex; xLoop <= maxIndex; xLoop++) {
+            for (int yLoop = minIndex; yLoop <= maxIndex; yLoop++) {
+                if (grid.isCellAlive(xLoop, yLoop)){
+                    isNextIterationPossible = true;
+                    break;
+                }
+            }
+            if (isNextIterationPossible) break;
+        }
+        return isNextIterationPossible;
+    }
 }
