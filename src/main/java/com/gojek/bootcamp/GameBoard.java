@@ -5,6 +5,7 @@ import java.io.IOException;
 public class GameBoard {
     private Input userInput;
     private Output systemOutput;
+    private Grid grid;
 
     public GameBoard(Input userInput, Output systemOutput) {
         this.userInput = userInput;
@@ -19,6 +20,7 @@ public class GameBoard {
             String input = userInput.nextInput();
             if (isInputValid(input)) {
                 String[] inputIndex = input.split(",");
+                grid.insertAliveCell(Integer.parseInt(inputIndex[0]), Integer.parseInt(inputIndex[1]));
             }
         }
     }
