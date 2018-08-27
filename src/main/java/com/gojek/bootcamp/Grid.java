@@ -38,4 +38,13 @@ public class Grid {
     private String getMapKey(int xPoint, int yPoint) {
         return "" + xPoint + "#" + yPoint;
     }
+
+    public int getMinIndex() {
+        return minIndex;
+    }
+
+    public int getMaxIndex() {
+        return maxIndex;
+    }
+
 }

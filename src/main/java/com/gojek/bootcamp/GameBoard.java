@@ -41,4 +41,11 @@ public class GameBoard {
             return false;
         }
     }
+
+    public void displayGrid() {
+        int minIndex = grid.getMinIndex();
+        int maxIndex = grid.getMaxIndex();
+        systemOutput.clearScreen();
+
+    }
 }

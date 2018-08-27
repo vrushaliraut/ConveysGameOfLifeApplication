@@ -8,5 +8,7 @@ public class ConveysGameOfLifeApplication {
         Output systemOutput = new SystemOutput();
         GameBoard gameBoard = new GameBoard(userInput, systemOutput);
         gameBoard.processInput();
+        gameBoard.displayGrid();
+
     }
 }
