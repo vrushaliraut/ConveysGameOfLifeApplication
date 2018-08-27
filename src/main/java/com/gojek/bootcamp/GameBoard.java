@@ -68,7 +68,7 @@ public class GameBoard {
 
         for (int xLoop = minIndex; xLoop <= maxIndex; xLoop++) {
             for (int yLoop = minIndex; yLoop <= maxIndex; yLoop++) {
-                if (grid.isCellAlive(xLoop, yLoop)){
+                if (grid.isCellAlive(xLoop, yLoop)) {
                     isNextIterationPossible = true;
                     break;
                 }
@@ -79,6 +79,51 @@ public class GameBoard {
     }
 
     public void nextIteration() {
+        int minIndex = grid.getMinIndex();
+        int maxIndex = grid.getMaxIndex();
+        Grid newGrid = new Grid();
+        for (int x = minIndex; x <= maxIndex; x++) {
+            for (int y = minIndex; y <= maxIndex; y++) {
+                int liveCellCount = liveCellCount(x, y);
 
+            }
+        }
+    }
+
+    private int liveCellCount(int xPoint, int yPoint) {
+        int count = 0;
+        if (grid.isCellAlive(xPoint + 1, yPoint)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint - 1, yPoint)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint, yPoint + 1)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint, yPoint - 1)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint + 1, yPoint + 1)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint - 1, yPoint - 1)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint + 1, yPoint - 1)) {
+            count += 1;
+        }
+
+        if (grid.isCellAlive(xPoint - 1, yPoint + 1)) {
+            count += 1;
+        }
+
+        return count;
     }
 }
