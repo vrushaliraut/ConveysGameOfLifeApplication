@@ -8,10 +8,11 @@ public class UserInput implements Input {
 
     private static final String IS_END_OF_FILE = "eof";
     private BufferedReader reader;
-    private boolean isEndOf;
+    private Boolean isEndOf;
 
     public UserInput() {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
+        isEndOf = false;
     }
 
     @Override
@@ -24,15 +25,16 @@ public class UserInput implements Input {
     }
 
     @Override
-    public boolean isEndOfInput() {
-        return isEndOfFileGettoer();
+    public Boolean isEndOfInput() {
+        return isEndOfFileGetter();
     }
 
     @Override
     public void close() throws IOException {
+        reader.close();
     }
 
-    public boolean isEndOfFileGettoer() {
+    public boolean isEndOfFileGetter() {
         return isEndOf;
     }
 

@@ -3,6 +3,9 @@ package com.gojek.bootcamp;
 import java.io.IOException;
 
 public class GameBoard {
+
+    private static final int TWO_LIVE_NEIGHBORS = 2;
+    private static final int THREE_LIVE_NEIGHBORS = 3;
     private Input userInput;
     private Output systemOutput;
     private Grid grid;
@@ -10,13 +13,14 @@ public class GameBoard {
     public GameBoard(Input userInput, Output systemOutput) {
         this.userInput = userInput;
         this.systemOutput = systemOutput;
+        this.grid = new Grid();
     }
 
     public void processInput() throws IOException {
-        systemOutput.print("Enter ALive cells in (x,y) format :");
+        systemOutput.print("Enter Alive cells in (x,y) format :");
         systemOutput.printNewLine();
 
-        while (userInput.isEndOfInput()) {
+        while (!userInput.isEndOfInput()) {
             String input = userInput.nextInput();
             if (isInputValid(input)) {
                 String[] inputIndex = input.split(",");
@@ -85,9 +89,22 @@ public class GameBoard {
         for (int x = minIndex; x <= maxIndex; x++) {
             for (int y = minIndex; y <= maxIndex; y++) {
                 int liveCellCount = liveCellCount(x, y);
-
+                switch (liveCellCount) {
+                    case TWO_LIVE_NEIGHBORS:
+                        newGrid.insertAliveCell(x, y);
+                        break;
+                    case THREE_LIVE_NEIGHBORS:
+                        if (grid.isCellAlive(x, y)) {
+                            newGrid.insertAliveCell(x, y);
+                        } else {
+                            newGrid.inserCellDead(x, y);
+                        }
+                        break;
+                }
             }
         }
+        grid = newGrid;
+
     }
 
     private int liveCellCount(int xPoint, int yPoint) {

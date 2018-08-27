@@ -8,7 +8,7 @@ public class SystemOutput implements Output {
 
     @Override
     public void printNewLine() {
-
+        System.out.println();
     }
 
     @Override

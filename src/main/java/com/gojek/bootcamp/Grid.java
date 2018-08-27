@@ -21,6 +21,13 @@ public class Grid {
         updateIndexIfRequired(xPoint, yPoint);
     }
 
+    public void inserCellDead(int xPoint, int yPoint) {
+        Cell cell = new Cell(xPoint, yPoint);
+        cell.markDead();
+        String key = getMapKey(xPoint, yPoint);
+        gridCells.remove(key, cell);
+        updateIndexIfRequired(xPoint, yPoint);
+    }
     private void updateIndexIfRequired(int xPoint, int yPoint) {
         if (xPoint < minIndex){
             minIndex = xPoint;
@@ -51,4 +58,5 @@ public class Grid {
         String key = getMapKey(xPoint, yPoint);
         return gridCells.containsKey(key) && gridCells.get(key).isStateAlive();
     }
+
 }
