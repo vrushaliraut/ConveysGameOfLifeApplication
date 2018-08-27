@@ -2,8 +2,8 @@ package com.gojek.bootcamp;
 
 public class SystemOutput implements Output {
     @Override
-    public void print() {
-
+    public void print(String messgae) {
+        System.out.print(messgae);
     }
 
     @Override
