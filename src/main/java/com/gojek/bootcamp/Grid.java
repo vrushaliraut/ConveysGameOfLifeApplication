@@ -47,4 +47,8 @@ public class Grid {
         return maxIndex;
     }
 
+    public boolean isCellAlive(int xPoint, int yPoint) {
+        String key = getMapKey(xPoint, yPoint);
+        return gridCells.containsKey(key) && gridCells.get(key).isStateAlive();
+    }
 }

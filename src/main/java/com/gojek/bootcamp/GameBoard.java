@@ -46,6 +46,18 @@ public class GameBoard {
         int minIndex = grid.getMinIndex();
         int maxIndex = grid.getMaxIndex();
         systemOutput.clearScreen();
+        systemOutput.print("Current Iteration :: ");
+        systemOutput.printNewLine();
+        for (int x = minIndex; x <= maxIndex; x++) {
+            for (int y = minIndex; y <= maxIndex; y++) {
+                if (grid.isCellAlive(x, y)) {
+                    systemOutput.print("O ");
+                } else {
+                    systemOutput.print("- ");
+                }
+            }
+            systemOutput.printNewLine();
+        }
 
     }
 }
