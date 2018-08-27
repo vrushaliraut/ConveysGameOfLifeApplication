@@ -4,7 +4,7 @@ This project will solves conveys game of life problem with respect to following 
 1. Under population - Any live cell with fewer than two live neighbors Dies.
 2. Overpopulation   - Any live cell with more than three live neighbors Dies. 
 3. Next Generations - Any live cell with two or three live neighbors Lives
-4. Reproduction -     Any dead cell with exactly three live neighbors becomes a Live cell.
+4. Reproduction -   Any dead cell with exactly three live neighbors becomes a Live cell.
 ```
 ## Dev Environment Setup for OS X.
 * Java v10
@@ -39,4 +39,4 @@ $ ./gradlew clean build check
 ```
 
 ### Author
-Vrushali
+Vrushali Raut
