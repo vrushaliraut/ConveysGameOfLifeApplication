@@ -77,4 +77,8 @@ public class GameBoard {
         }
         return isNextIterationPossible;
     }
+
+    public void nextIteration() {
+
+    }
 }
