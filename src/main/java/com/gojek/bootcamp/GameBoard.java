@@ -24,7 +24,19 @@ public class GameBoard {
     }
 
     private boolean isInputValid(String input) {
-        return true;
+        if (input == null && input.length() == 0)
+            return false;
+
+        String[] inputarray = input.split(",");
+        if (inputarray.length != 2) {
+            return false;
+        }
+        try {
+            Integer.parseInt(inputarray[0]);
+            Integer.parseInt(inputarray[1]);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
-
